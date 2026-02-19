@@ -2,8 +2,11 @@
 pragma solidity ^0.8.20;
 
 /// @title PledgeBoard Contract
+/// @author solidworkssa
 /// @notice Community pledge tracker for crowdfunding.
 contract PledgeBoard {
+    string public constant VERSION = "1.0.0";
+
 
     mapping(address => uint256) public pledges;
     uint256 public goal;
