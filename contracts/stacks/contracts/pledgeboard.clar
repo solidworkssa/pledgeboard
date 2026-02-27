@@ -22,8 +22,8 @@
 
 (define-public (pledge (amount uint))
     (begin
-        (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
-        (map-set pledges tx-sender (+ (default-to u0 (map-get? pledges tx-sender)) amount))
+        (try! (stx-transfer? amount contract-caller (as-contract contract-caller)))
+        (map-set pledges contract-caller (+ (default-to u0 (map-get? pledges contract-caller)) amount))
         (var-set total-pledged (+ (var-get total-pledged) amount))
         (ok true)
     )
